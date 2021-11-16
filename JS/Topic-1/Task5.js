@@ -14,14 +14,28 @@ function sellTickets (peoplesBills) {
     for (let i = 0; i < peoplesBills.length; i++) {
         if (peoplesBills[i] === 25){
             cash[25] ++;
-        }
+            }
         else if (peoplesBills[i] === 50) {
             if (cash[25] !==0) {
                 cash[25] --;
                 cash[50] ++;
             }
-            else console.log('I do not have the necessary bills')
+            else return "NO. Vasya will not have the right bills"
         }
-        
+        else if (peoplesBills[i] === 100) {
+            if (cash[25] !==0 && cash[50] !==0) {
+                cash[25] --;
+                cash[50] --;
+                cash[100] ++;
+        }
+            else if (cash[50] === 0 && cash[25] >=3) {
+                cash[25] -=3;
+                cash[100] ++;
+        } 
+            else return "NO. Vasya will not have the right bills"
+        }
+        else return "NO. Vasya will not have the right bills"
     }
+    return "YES"
 }
+
