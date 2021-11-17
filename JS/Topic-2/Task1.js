@@ -9,12 +9,10 @@ let arr = [];
 let sum;
 function runningAverage(num) {
     arr.push(num);
-    console.log(arr);
     sum = arr.reduce((sum, current) => sum + current);
-    console.log(sum);
     return sum/arr.length
 }
 
-console.log(runningAverage(5))
 console.log(runningAverage(10))
-console.log(runningAverage(100))
+console.log(runningAverage(11))
+console.log(runningAverage(12))
