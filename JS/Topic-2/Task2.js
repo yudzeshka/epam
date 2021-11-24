@@ -4,10 +4,15 @@
 // sum(1)(2)(3)(4); // Outputs 10
 
 
-// let numbers = (1)(2)(3)(4);
-// console.log(RegExp(/\d+/)(numbers))
-// function sum(numbers) {
-//     numbers.split('()')
-//     console.log(numbers)
-// }
-// sum((2)(3))
+
+
+const sum=(...n)=>{
+    const vsum=(a,c)=>a+c;
+    n=n.reduce(vsum,0);
+    const fn=(...x)=>sum(n+x.reduce(vsum,0));
+    fn.toString=()=>n; 
+    return fn;
+   }
+   
+
+console.log (sum(2)(3));
